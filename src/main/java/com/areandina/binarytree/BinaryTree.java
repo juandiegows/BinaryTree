@@ -1,4 +1,3 @@
-
 package com.areandina.binarytree;
 
 import com.areandina.binarytree.Model.Node;
@@ -39,6 +38,18 @@ public class BinaryTree {
         return root;
     }
 
+    public void inordern() {
+        inordernRect(root);
+    }
+
+    public void inordernRect(Node root) {
+        if (root != null) {
+            inordern(root.getLeft());
+            System.out.print(root.getValue() + " ");
+            inordern(root.getRight());
+        }
+    }
+
     public void inordern(Node node) {
         if (node != null) {
             inordern(node.getLeft());
@@ -46,29 +57,29 @@ public class BinaryTree {
             inordern(node.getRight());
         }
     }
-    
-    public String findWay(int value){
+
+    public String findWay(int value) {
         return findWayRec(root, value);
     }
 
     private String findWayRec(Node root, int value) {
-       if(root == null){
-           return "El nodo no existe";
-       }
-       if(root.getValue() == value){
-           return root.getValue()+"";
-       }else if (value < root.getValue()){
-           String stringWayLeft =  findWayRec(root.getLeft(), value);
-           if(!stringWayLeft.equalsIgnoreCase("El nodo no existe")){
-               return root.getValue() +" --> "+stringWayLeft;
-           }
-       }else {
-            String stringWayRight =  findWayRec(root.getRight(), value);
-           if(!stringWayRight.equalsIgnoreCase("El nodo no existe")){
-               return root.getValue() +" --> "+stringWayRight;
-           }
-       }
-          return "El nodo no existe";
+        if (root == null) {
+            return "El nodo no existe";
+        }
+        if (root.getValue() == value) {
+            return root.getValue() + "";
+        } else if (value < root.getValue()) {
+            String stringWayLeft = findWayRec(root.getLeft(), value);
+            if (!stringWayLeft.equalsIgnoreCase("El nodo no existe")) {
+                return root.getValue() + " --> " + stringWayLeft;
+            }
+        } else {
+            String stringWayRight = findWayRec(root.getRight(), value);
+            if (!stringWayRight.equalsIgnoreCase("El nodo no existe")) {
+                return root.getValue() + " --> " + stringWayRight;
+            }
+        }
+        return "El nodo no existe";
     }
 
 }
