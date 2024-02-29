@@ -42,7 +42,6 @@ public class BinaryTree {
         inordern(this.getRoot());
     }
 
-   
     public void inordern(Node node) {
         if (node != null) {
             inordern(node.getLeft());
@@ -73,6 +72,50 @@ public class BinaryTree {
             }
         }
         return "El nodo no existe";
+    }
+
+    public void findNodesWithTwoChildren() {
+        findNodesWithTwoChildren(root);
+    }
+
+    private void findNodesWithTwoChildren(Node node) {
+        if (node != null) {
+            if (node.getLeft() != null && node.getRight() != null) {
+                System.out.print(" " + node.getValue());
+            }
+            findNodesWithTwoChildren(node.getLeft());
+            findNodesWithTwoChildren(node.getRight());
+        }
+    }
+
+    public void findNodesWithAtLeastOneEvenChild() {
+        findNodesWithAtLeastOneEvenChild(root);
+    }
+
+    private void findNodesWithAtLeastOneEvenChild(Node node) {
+        if (node != null) {
+            if ((node.getLeft() != null && node.getLeft().getValue() % 2 == 0)
+                    || (node.getRight() != null && node.getRight().getValue() % 2 == 0)) {
+                System.out.print(" " + node.getValue());
+            }
+            findNodesWithAtLeastOneEvenChild(node.getLeft());
+            findNodesWithAtLeastOneEvenChild(node.getRight());
+        }
+    }
+
+    public void sumChildValues(Node node) {
+        if (node != null) {
+            int sum = 0;
+            if (node.getLeft() != null) {
+                sum += node.getLeft().getValue();
+            }
+            if (node.getRight() != null) {
+                sum += node.getRight().getValue();
+            }
+            System.out.print(sum + " ");
+            sumChildValues(node.getLeft());
+            sumChildValues(node.getRight());
+        }
     }
 
 }

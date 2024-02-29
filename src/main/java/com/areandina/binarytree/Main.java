@@ -20,8 +20,8 @@ public class Main {
 //        int count = input.nextInt();
         System.out.println("Ingrese los elementos");
 //        for (int i = 0; i < count; i++) {
-//            System.out.print((i+1)+": ");
-//            int value =input.nextInt();
+//            System.out.print((i + 1) + ": ");
+//            int value = input.nextInt();
 //            binaryTree.Insert(value);
 //        }
         binaryTree.Insert(18);
@@ -34,7 +34,23 @@ public class Main {
         binaryTree.Insert(19);
         binaryTree.Insert(21);
         binaryTree.Insert(22);
-        System.out.println("Mostrar el arbol");
+        System.out.print("Mostrar el arbol");
         binaryTree.inordern();
+        System.out.println("");
+        System.out.print("Los que tiene 2 hijos:");
+        binaryTree.findNodesWithTwoChildren();
+        System.out.println("");
+        System.out.print("Los que tiene un hijo:");
+        binaryTree.findNodesWithAtLeastOneEvenChild();
+        System.out.println();
+
+        System.out.print("Suma de los valores de sus hijos: ");
+        binaryTree.sumChildValues(binaryTree.getRoot());
+        System.out.println();
+        System.out.print("Ingrese el valor a buscar: ");
+        int valueFind = 4;
+        System.out.println("");
+        System.out.print("El camino es : ");
+        System.out.println(binaryTree.findWay(valueFind));;
     }
 }
