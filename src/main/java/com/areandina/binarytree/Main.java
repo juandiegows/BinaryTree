@@ -15,31 +15,26 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         BinaryTree binaryTree = new BinaryTree();
+        
         System.out.println("Software FUAA");
-//        System.out.print("Ingrese la cantidad de elemento del Arbol: ");
-//        int count = input.nextInt();
+        System.out.print("Ingrese la cantidad de elemento del Arbol: ");
+        int count = input.nextInt();
+        
         System.out.println("Ingrese los elementos");
-//        for (int i = 0; i < count; i++) {
-//            System.out.print((i + 1) + ": ");
-//            int value = input.nextInt();
-//            binaryTree.Insert(value);
-//        }
-        binaryTree.Insert(18);
-        binaryTree.Insert(5);
-        binaryTree.Insert(3);
-        binaryTree.Insert(4);
-        binaryTree.Insert(1);
-        binaryTree.Insert(8);
-        binaryTree.Insert(20);
-        binaryTree.Insert(19);
-        binaryTree.Insert(21);
-        binaryTree.Insert(22);
+        for (int i = 0; i < count; i++) {
+            System.out.print((i + 1) + ": ");
+            int value = input.nextInt();
+            binaryTree.Insert(value);
+        }
+
         System.out.print("Mostrar el arbol");
         binaryTree.inordern();
         System.out.println("");
+        
         System.out.print("Los que tiene 2 hijos:");
         binaryTree.findNodesWithTwoChildren();
         System.out.println("");
+        
         System.out.print("Los que tiene un hijo:");
         binaryTree.findNodesWithAtLeastOneEvenChild();
         System.out.println();
@@ -47,9 +42,11 @@ public class Main {
         System.out.print("Suma de los valores de sus hijos: ");
         binaryTree.sumChildValues(binaryTree.getRoot());
         System.out.println();
+        
         System.out.print("Ingrese el valor a buscar: ");
-        int valueFind = 4;
+        int valueFind =input.nextInt();
         System.out.println("");
+        
         System.out.print("El camino es : ");
         System.out.println(binaryTree.findWay(valueFind));;
     }
