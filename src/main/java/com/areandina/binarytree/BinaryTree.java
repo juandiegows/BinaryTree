@@ -32,24 +32,17 @@ public class BinaryTree {
         }
         if (value < root.getValue()) {
             root.setLeft(InsertRecord(root.getLeft(), value));
-        } else if (value < root.getValue()) {
+        } else if (value > root.getValue()) {
             root.setRight(InsertRecord(root.getRight(), value));
         }
         return root;
     }
 
     public void inordern() {
-        inordernRect(root);
+        inordern(this.getRoot());
     }
 
-    public void inordernRect(Node root) {
-        if (root != null) {
-            inordern(root.getLeft());
-            System.out.print(root.getValue() + " ");
-            inordern(root.getRight());
-        }
-    }
-
+   
     public void inordern(Node node) {
         if (node != null) {
             inordern(node.getLeft());
